@@ -1,4 +1,4 @@
-package core.lesson7.workset;
+package core.project.workset;
 
 import okhttp3.HttpUrl;
 import okhttp3.OkHttpClient;

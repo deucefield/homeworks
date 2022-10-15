@@ -1,12 +1,12 @@
-package core.lesson7;
+package core.project;
 
-import core.lesson7.workset.UserInterface;
+import core.project.workset.UserInterface;
 
 import java.io.IOException;
 
 public class MainApp {
 
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) throws Exception {
         UserInterface UI = new UserInterface();
         UI.runDialog();
     }

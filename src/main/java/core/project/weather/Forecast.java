@@ -1,4 +1,4 @@
-package core.lesson7.weather;
+package core.project.weather;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
