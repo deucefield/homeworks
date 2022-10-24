@@ -16,28 +16,38 @@ public class MainApp {
     public static void main(String[] args) {
         fillList(coursesList);
         List<Student> students = createStudents(10);
+        Course example = new Course("Java Core");
 
+        getUnique(students);
+        getInterested(students);
+        getComparisoned(students, example);
+    }
+
+    public static void getUnique(List<Student> students) {
         System.out.println("=====================================================");
         List<Course> unique = students.stream()
                 .flatMap(s -> s.getStudentCourses().stream())
                 .distinct()
                 .collect(Collectors.toList());
         for(Course c: unique) {System.out.println(c);}
+    }
 
+    public static void getInterested(List<Student> students) {
         System.out.println('\n'+"=====================================================");
         List<Student> interested = students.stream()
                 .sorted((s1, s2) -> s2.getStudentCourses().size() - s1.getStudentCourses().size())
                 .limit(3)
                 .collect(Collectors.toList());
         for(Student s: interested) {System.out.println(s);}
+    }
 
+    public static void getComparisoned(List<Student> students, Course example) {
         System.out.println('\n'+"=====================================================");
-        Course example = new Course("Java Core");
         List<Student> comparison = students.stream()
-                .filter(s -> s.getStudentCourses().contains(example))
+                .filter(s->s.getStudentCourses().contains(example))
                 .collect(Collectors.toList());
-        for(Student s: comparison) {System.out.println(s);}
 
+        for(Student s: comparison) {System.out.println(s);}
     }
 
     static void fillList(ArrayList<Course> coursesList) {
